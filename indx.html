@@ -18,17 +18,7 @@
     <div id="app"></div>
 
     <script type="text/babel">
-      //   function App(){
-
-      //     return(
-      //         <div>
-      //             <h1>Hello components</h1>
-      //         </div>
-      //     )
-      //   }
-
-      // App name de component
-      // React.component  من اجل استدعاء function موجودة في component وهي  render تقول بارجاع view
+    
       class App extends React.Component {
         render() {
           return (
@@ -44,10 +34,13 @@
       //Header Components
 
       class Header extends React.Component {
+        state={
+          name:"Header Component",
+        }
         render() { 
 
             return (
-              <header>{this.props.title}</header> 
+              <header>{this.props.title} and state {this.state.name}</header> 
             )
             
         }
@@ -56,19 +49,25 @@
       //Content Components
 
       class Content extends React.Component {
+        state={
+          name:"Content Component",
+        }
         render() {
             return(
 
-              <main> {this.props.title} </main>
+              <main> {this.props.title} and state {this.state.name}</main>
             )
         }
       }
       //footer Components
       class Footer extends React.Component {
+        state={
+          name:"Footer Component",
+        }
         render() {
             return(
 
-              <footer>{this.props.title} </footer>
+              <footer>{this.props.title} and state {this.state.name}</footer>
             )
         }
       }

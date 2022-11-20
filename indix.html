@@ -1,0 +1,85 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>app</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+    
+      class App extends React.Component {
+        state={
+         item: [
+
+         {id:1,name:"souhaila",age:23 },
+         {id:2,name:"souhail",age:44 }
+
+
+          ]
+        }
+        render() {
+       
+
+          return (
+
+            <Items item={this.state.item} />
+         
+
+          )
+
+
+
+        }
+      }
+    
+      class Items extends React.Component{
+
+        render(){
+          const {item} =this.props;
+          const theItems=item.map((value)=>{
+           
+             return(
+
+             <div>
+              <p>{value.id}</p>
+              <p>{value.age}</p>
+              <p>{value.name}</p>
+              </div>
+              
+
+             )
+          });
+
+
+
+  //  const id =this.props.id;
+  //  const name=this.props.name;
+  //  const age =this.props.age;
+  
+  // const {id,name,age}=this.props;
+           
+          return(
+            <div>
+              
+              {theItems}
+              </div>
+          )
+        }
+      }
+     
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>

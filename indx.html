@@ -20,57 +20,58 @@
     <script type="text/babel">
     
       class App extends React.Component {
+       
+        state={
+
+          name:"",
+        }
+       
+        handlChange=(e)=>{
+
+            this.setState({
+                 
+              name:e.target.value
+
+             })
+        }
+        handleSumbit=(e)=>{
+         
+          e.preventDefault()
+            console.log(this.state.name)
+        }
         render() {
+      
           return (
-            <div>
-              <Content title="Hello Content" />
-              <Header title="hello Header" />
-               <Footer  title="Hello Footer" />
-            </div>
-          );
+         <div>
+          <form onSubmit={this.handleSumbit}>
+            <input type="text" onChange={this.handlChange} />
+            <button>Sumbit</button>
+            </form>
+                 {this.state.name}
+          </div>
+         
+
+          )
+
+
+
         }
       }
-
-      //Header Components
-
-      class Header extends React.Component {
-        state={
-          name:"Header Component",
-        }
-        render() { 
-
-            return (
-              <header>{this.props.title} and state {this.state.name}</header> 
-            )
+    
+      
+           
             
-        }
-      }
 
-      //Content Components
 
-      class Content extends React.Component {
-        state={
-          name:"Content Component",
-        }
-        render() {
-            return(
-
-              <main> {this.props.title} and state {this.state.name}</main>
-            )
-        }
-      }
-      //footer Components
-      class Footer extends React.Component {
-        state={
-          name:"Footer Component",
-        }
-        render() {
-            return(
-
-              <footer>{this.props.title} and state {this.state.name}</footer>
-            )
-        }
-      }
+  //  const id =this.props.id;
+  //  const name=this.props.name;
+  //  const age =this.props.age;
+  
+  // const {id,name,age}=this.props;
+           
+        
+   
+     
       ReactDOM.render(<App />, document.getElementById("app"));
     </script>
   </body>
